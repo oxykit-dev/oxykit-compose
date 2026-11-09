@@ -1,0 +1,17 @@
+# Build the cores from sibling checkouts (each repo's own Dockerfile) instead of pulling images.
+# Layout: OxyKit.Render, OxyKit.Mail, OxyKit.Flow next to this repo (override with OXYKIT_SRC).
+# docker compose -f compose.yml -f compose.dev.yml up --build
+
+services:
+  render:
+    image: oxykit-render:dev
+    build:
+      context: ${OXYKIT_SRC:-..}/OxyKit.Render
+  mail:
+    image: oxykit-mail:dev
+    build:
+      context: ${OXYKIT_SRC:-..}/OxyKit.Mail
+  flow:
+    image: oxykit-flow:dev
+    build:
+      context: ${OXYKIT_SRC:-..}/OxyKit.Flow

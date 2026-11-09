@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+output/
+.DS_Store
+
+# Local agent/editor rules (not tracked; AGENTS.md is canonical)
+.cursor/
+.devin/
